@@ -1,0 +1,31 @@
+% molecule
+
+# Initialize ansible role
+molecule init role <role_name>
+
+# Create a new molecule container
+molecule create
+
+# Run molecule tests
+molecule test
+
+# Run molecule tests for every scenario
+molecule test --all
+
+# Run molecule tests for a specific scenario
+molecule test --scenario-name <scenario_name>
+
+# Only run the converge step
+molecule converge
+
+# Only run the converge step for a specific scenario
+molecule converge --scenario-name <scenario_name>
+
+# Only run the converge step for every scenario
+molecule converge --all
+
+# Only run the lint step
+molecule lint
+
+# Login into the instance
+molecule login
