@@ -1,0 +1,43 @@
+% ansible-playbook
+
+# Run a playbook
+ansible-playbook <playbook_name>.yml
+
+# Run a playbook with a custom inventory
+ansible-playbook <playbook_name>.yml -i <inventory_file>
+
+# Run a playbook but connect as a different user
+ansible-playbook <playbook_name>.yml -u <user>
+
+# Run a playbook using a custom SSH key
+ansible-playbook <playbook_name>.yml --private-key=<path_to_private_key>
+
+# Authenticate with a password before running a playbook
+ansible-playbook <playbook_name>.yml --ask-pass
+
+# Provide sudo password.
+ansible-playbook <playbook_name>.yml --ask-become-pass
+
+# List all tasks that will be executed by a play without making any  chages
+ansible-playbook <playbook_name>.yml --list-tasks
+
+# List all the hosts that will be affected by a play without running any tasks
+ansible-playbook <playbook_name>.yml --list-hosts
+
+# List all available tags in a play without running any tasks
+ansible-playbook <playbook_name>.yml --list-tags
+
+# Skip all tasks prior to the defined one
+ansible-playbook <playbook_name>.yml --start-at-tasks=<task_name>
+
+# Only execute given tagged tasks
+ansible-playbook <playbook_name>.yml --tags=<tags>
+
+# Skip given tagged tasks
+ansible-playbook <playbook_name>.yml --skip-tags=<tags>
+
+# Make the playbook output more verbose
+ansible-playbook <playbook_name>.yml -v
+
+# Make the playbook output extremely verbose
+ansible-playbook <playbook_name>.yml -vvv

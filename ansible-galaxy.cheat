@@ -1,0 +1,19 @@
+% ansible-galaxy
+
+# Install a role
+ansible-galaxy install <username_role_name>
+
+# Install roles listed in a file
+ansible-galaxy install -r <requirements>
+
+# Remove a role
+ansible-galaxy remove <username_role_name>
+
+# List installed roles
+ansible-galaxy list
+
+# Search for a role
+ansible-galaxy search <role_name>
+
+# Initialize a new role
+ansible-galaxy init <role_name>

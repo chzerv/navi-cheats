@@ -1,0 +1,25 @@
+% ansible
+
+# Test connectivity to nodes
+ansible <group> -m ping
+
+# Display facts about nodes using the setup module
+ansible <group> -m setup
+
+# Connect as a different user
+ansible <group> -m <module_name> -u <user>
+
+# Use a custom SSH key
+ansible <group> -m <module_name> --private-key=<path_to_private_key>
+
+# Use password-based authentication for connecting to the remote
+ansible <group> -m <module_name> --ask-pass
+
+# Provide sudo password
+ansible <group> -m <module_name> --ask-become-pass
+
+# Execute a command using the command module
+ansible <group> -m command -m '<command>'
+
+# Execute a command on the localhost
+ansible all -i "localhost," -c local -m <module_name>
