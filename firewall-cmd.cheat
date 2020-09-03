@@ -1,0 +1,47 @@
+% firewalld
+
+# View the default zone
+firewall-cmd --get-default-zone
+
+# View the available firewall zones
+firewall-cmd --get-active-zones
+
+# View the rules which are currently applied
+firewall-cmd --list-all
+
+# Permanently add a source to a zone
+firewall-cmd --permanent --zone=<firewalld_zones> --add-source=<ip_addr>
+
+# Permanently remove a source from a zone
+firewall-cmd --permanent --zone=<firewalld_zones> --remove-source=<ip_addr>
+
+# Permanently add an interface to a zone
+firewall-cmd --permanent --zone=<firewalld_zones> --add-interface=<network_interfaces>
+
+# Permanently remove an interface from a zone
+firewall-cmd --permanent --zone=<firewalld_zones> --remove-interface=<network_interfaces>
+
+# Permanently add a service to a zone
+firewall-cmd --permanent --zone=<firewalld_zones> --add-service=<firewalld_services>
+
+# Permanently remove a service from a zone
+firewall-cmd --permanent --zone=<firewalld_zones> --remove-service=<firewalld_services>
+
+# Permanently add a port to a service.
+firewall-cmd --permanent --add-port=<port_protocol> --service=<firewalld_services>
+
+# Permanently remove a port from a service.
+firewall-cmd --permanent --remove-port=<port_protocol> --service=<firewalld_services>
+
+# Permanently open two arbitrary ports in the specified zone
+firewall-cmd --permanent --zone=<firewalld_zones> --add-port=<25565_tcp> --add-port=<19132_udp>
+
+# Load the runtime configuration into the permanent configuration
+firewall-cmd --runtime-to-permanent
+
+# Reload firewalld to force rule changes to take effect
+firewall-cmd --reload
+
+$ network_interfaces: ls /sys/class/net
+$ firewalld_services: firewall-cmd --get-services | tr " " "\n"
+$ firewalld_zones: firewall-cmd --get-zones | tr " " "\n"
