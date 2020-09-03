@@ -1,0 +1,62 @@
+% podman
+
+# Remove an image
+podman image rm <image_id>
+
+# Delete an image from the local image store
+podman rmi <image_id>
+
+# List all images that are locally stored with the Podman engine
+podman images
+
+# Build an image from the Podmanfile in the current directory and tag the image
+podman build -t <image>:<version> .
+
+# Pull an image from a registry
+podman pull <image>:<version>
+
+# Stop a running container through SIGTERM
+podman container stop <container_id>
+
+# Stop a running container through SIGKILL
+podman container kill <container_id>
+
+# List the networks
+podman network ls
+
+# List the running containers
+podman ps -a
+
+# Delete all running and stopped containers
+podman rm -f $(podman ps -aq)
+
+# Create a new bash process inside the container and connect it to the terminal
+podman exec -it <container_id> bash
+
+# Print the last lines of a container's logs
+podman logs --tail 100 <container_id> | less
+
+# Print the last lines of a container's logs and following its logs
+podman logs --tail 100 <container_id> -f
+
+# Create new network
+podman network create <network_name>
+
+$ image_id: podman images --- --headers 1 --column 3
+$ container_id: podman ps --- --headers 1 --column 1
+
+
+
+% podman-compose
+
+# Builds, (re)creates, starts, and attaches to containers for all services
+podman-compose up
+
+# Builds, (re)creates, starts, and dettaches to containers for all services
+podman-compose up -d
+
+# Builds, (re)creates, starts, and attaches to containers for a service
+podman-compose up -d <service_name>
+
+# Stops containers and removes containers, networks created by up
+podman-compose down
