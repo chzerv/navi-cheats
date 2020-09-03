@@ -1,0 +1,28 @@
+% emacs
+
+# Start emacs in console mode
+emacs -nw
+
+# Open a file
+emacs <path_to_file>
+
+# Open a file at the specified line number
+emacs +<line_number> <path_to_file>
+
+
+
+% emacsclient
+
+# Open file in an existing emacs frame
+emacsclient <path_to_file>
+
+# Open a file in console mode
+emacsclient -t <path_to_file>
+
+# Open a file in an existing emacs frame
+emacsclient -n <path_to_file>
+
+# Eval a Lisp command in a new emacs frame
+emacsclient -c -e '(<command>)'
+
+$ path_to_file: exa -a --- --preview-window up:40%
