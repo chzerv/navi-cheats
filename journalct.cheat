@@ -1,0 +1,34 @@
+% journalctl , logs
+
+# Show logs a for specific service
+journalctl -xu <service>
+
+# Show logs a for specific user service
+journalctl --user -xu <user_service>
+
+# Show logs for the current boot
+journalctl -xb0
+
+# Show logs for the last boot
+journalctl -xb-1
+
+# Show the last logs
+journalctl -xe
+
+# Show logs since date
+journalctl --since=<date_or_time>
+
+# Show logs for specific executable
+journalctl <path_to_executable_
+
+# Show logs for spefic process ID
+journalctl _PID=<pid>
+
+# Show kernel ring buffer related logs
+journalctl -k
+
+# Show only error, critical and alert priority logs
+journalctl -p err..alert
+
+$ service: systemctl list-units --type=service --all | awk '{print $1}' | grep .service | sed 's/.service$//'
+$ user_service: systemctl --user list-units --type=service --all | awk '{print $1}' | grep .service | sed 's/.service$//'
