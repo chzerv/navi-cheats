@@ -9,12 +9,9 @@ emacs <path_to_file>
 # Open a file at the specified line number
 emacs +<line_number> <path_to_file>
 
-
+$ path_to_file: exa -a --- --preview-window up:40%
 
 % emacsclient
-
-# Open file in an existing emacs frame
-emacsclient <path_to_file>
 
 # Open a file in console mode
 emacsclient -t <path_to_file>

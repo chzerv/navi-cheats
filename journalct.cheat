@@ -24,7 +24,7 @@ journalctl <path_to_executable_
 # Show logs for spefic process ID
 journalctl _PID=<pid>
 
-# Show kernel ring buffer related logs
+# Show kernel ring buffer related logs (like dmesg)
 journalctl -k
 
 # Show only error, critical and alert priority logs

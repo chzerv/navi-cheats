@@ -30,6 +30,9 @@ systemctl --user list-unit-files --type=service --state=enabled
 # List disabled user services
 systemctl --user list-unit-files --type=service --state=disabled
 
+# List available device unit files
+systemctl list-units --all --full | grep ".device"
+
 $ user_service_inactive: systemctl --user list-units --type=service --state=inactive | awk '{print $1}' | grep .service | sed 's/.service$//'
 $ user_service_active: systemctl --user list-units --type=service --state=active | awk '{print $1}' | grep .service | sed 's/.service$//'
 $ user_service_enabled: systemctl --user list-unit-files --type=service --state=enabled | awk '{print $1}' | grep .service | sed 's/.service$//'
