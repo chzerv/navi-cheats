@@ -1,43 +1,45 @@
 % ansible-playbook
 
 # Run a playbook
-ansible-playbook <playbook_name>.yml
+ansible-playbook <playbook_name>
 
 # Run a playbook with a custom inventory
-ansible-playbook <playbook_name>.yml -i <inventory_file>
+ansible-playbook <playbook_name> -i <inventory_file>
 
 # Run a playbook but connect as a different user
-ansible-playbook <playbook_name>.yml -u <user>
+ansible-playbook <playbook_name> -u <user>
 
 # Run a playbook using a custom SSH key
-ansible-playbook <playbook_name>.yml --private-key=<path_to_private_key>
+ansible-playbook <playbook_name> --private-key=<path_to_private_key>
 
 # Authenticate with a password before running a playbook
-ansible-playbook <playbook_name>.yml --ask-pass
+ansible-playbook <playbook_name> --ask-pass
 
 # Provide sudo password.
-ansible-playbook <playbook_name>.yml --ask-become-pass
+ansible-playbook <playbook_name> --ask-become-pass
 
-# List all tasks that will be executed by a play without making any  chages
-ansible-playbook <playbook_name>.yml --list-tasks
+# List all tasks that will be executed by a play without making any changes
+ansible-playbook <playbook_name> --list-tasks
 
 # List all the hosts that will be affected by a play without running any tasks
-ansible-playbook <playbook_name>.yml --list-hosts
+ansible-playbook <playbook_name> --list-hosts
 
 # List all available tags in a play without running any tasks
-ansible-playbook <playbook_name>.yml --list-tags
+ansible-playbook <playbook_name> --list-tags
 
 # Skip all tasks prior to the defined one
-ansible-playbook <playbook_name>.yml --start-at-tasks=<task_name>
+ansible-playbook <playbook_name> --start-at-tasks=<task_name>
 
 # Only execute given tagged tasks
-ansible-playbook <playbook_name>.yml --tags=<tags>
+ansible-playbook <playbook_name> --tags=<tags>
 
 # Skip given tagged tasks
-ansible-playbook <playbook_name>.yml --skip-tags=<tags>
+ansible-playbook <playbook_name> --skip-tags=<tags>
 
 # Make the playbook output more verbose
-ansible-playbook <playbook_name>.yml -v
+ansible-playbook <playbook_name> -v
 
 # Make the playbook output extremely verbose
-ansible-playbook <playbook_name>.yml -vvv
+ansible-playbook <playbook_name> -vvv
+
+$ playbook_name: find . -maxdepth 1 -path ./.cache -prune -false -o \( -name '*.yml' -o -name '*.yaml' \) -and ! -name 'requirements.yml'
