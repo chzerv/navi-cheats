@@ -23,3 +23,5 @@ ansible <group> -m command -m '<command>'
 
 # Execute a command on the localhost
 ansible all -i "localhost," -c local -m <module_name>
+
+$ group: grep -oP '\[\K[^]]*' inventory | sed '/:/d'
