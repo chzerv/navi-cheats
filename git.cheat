@@ -1,0 +1,19 @@
+% git
+
+# Show the changes a commit made
+git show <commit_hash>
+
+# Grep for regexp in all commits
+git grep <regexp> $(git rev-list --all)
+
+# Grep for regexp in specific subtree
+git grep <regexp> $(git rev-list --all -- <subtree>) -- <subtree>
+
+# Blank commit. Can be used to trigger CI builds.
+git commit --allow-empty -m "Empty commit"
+
+# Show contents of stash
+git stash show -p <stash_list>
+
+$ commit_hash: git log --oneline --- --map "cut -c1-7"
+$ stash_list: git stash list --- --map "cut -d: -f1"
