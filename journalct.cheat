@@ -19,7 +19,7 @@ journalctl -xe
 journalctl --since=<date_or_time>
 
 # Show logs for specific executable
-journalctl <path_to_executable_
+journalctl <path_to_executable>
 
 # Show logs for spefic process ID
 journalctl _PID=<pid>
