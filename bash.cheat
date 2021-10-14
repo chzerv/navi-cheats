@@ -1,0 +1,10 @@
+% bash
+
+# Get the first n characters of a string
+echo "<string>" | cut -c1-<number_of_characters>
+
+# Print string before/after a delimiter is found
+echo "<string>" | cut -d<delimiter> -f<position_of_string_to_get>
+
+# Insert character at specified position
+echo "<string>" | sed 's/./&<char_to_insert>/<position_to_insert_the_char_into>'
