@@ -1,0 +1,12 @@
+% storage
+
+# List all attached NVMe drivers
+sudo nvme list
+
+# List information about a specific NVMe drive
+sudo nvme id-ctrl -H <nvme_drive>
+
+# List information about a namespace and features it supports
+sudo nvme id-ns <nvme_drive>
+
+$ nvme_drive: sudo nvme list | awk '{ print $1 }' | tail -n +3

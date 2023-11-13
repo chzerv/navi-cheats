@@ -1,4 +1,4 @@
-% systemctl, service
+% systemctl, systemd
 
 # Start user service
 systemctl --user start <user_service_inactive>

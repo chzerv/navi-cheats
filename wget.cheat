@@ -1,0 +1,13 @@
+% wget
+
+# Download a file
+wget <url>
+
+# Download a file, but apply a rate limit
+wget --limit-rate=500k <url>
+
+# Download a file into a directory
+wget -P <directory> <url>
+
+# Download a file and rename it
+wget <url> -O <new_name>

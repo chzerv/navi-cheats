@@ -15,5 +15,14 @@ git commit --allow-empty -m "Empty commit"
 # Show contents of stash
 git stash show -p <stash_list>
 
+# Show commits the contain some code
+git log -S <search_term>
+
+# Search all branches for commits the contain some code
+git log -S <search_term> --all
+
+# Search commit messages
+git log --grep <search_term>
+
 $ commit_hash: git log --oneline --- --map "cut -c1-7"
 $ stash_list: git stash list --- --map "cut -d: -f1"

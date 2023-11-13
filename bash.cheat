@@ -8,3 +8,15 @@ echo "<string>" | cut -d<delimiter> -f<position_of_string_to_get>
 
 # Insert character at specified position
 echo "<string>" | sed 's/./&<char_to_insert>/<position_to_insert_the_char_into>'
+
+# Check if command exists
+if ! command -v $command &> /dev/null; then .. fi
+
+# Skip first 2 lines
+cat file | tail -n +2
+
+# Cut anything before the : character
+cut -d: -f2
+
+# Generate a file with random data
+dd if=/dev/urandom of=<output_file> bs=1M count=10 status=progress

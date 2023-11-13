@@ -1,0 +1,7 @@
+% awk
+
+# Use a specific character as separator to sum integers from a file or stdin
+printf '1:2:3' | awk -F ":" '{print $1+$2+$3}'
+
+# Print the second column of a file
+cat file | awk '{ print $2 }'

@@ -1,0 +1,16 @@
+% network
+
+# Query domain DNS records
+nslookup -querytype=any <domain> <domain_ip>
+
+# Show listening TCP and UDP sockets
+ss -tulpn
+
+# List IP addresses connected to a given port
+ss -tn 2>/dev/null | grep :<port> | awk '{ print $5 }' | cut -d: -f1 | sort | uniq
+
+# Find public IP address
+curl ifconfig.me
+
+# Find local IP address
+ip addr show | grep -Eo 'inet ([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1' | awk '{ print $2}'

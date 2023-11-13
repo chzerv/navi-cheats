@@ -1,0 +1,4 @@
+% virtualization
+
+# Get all KVM networks
+virsh net-list

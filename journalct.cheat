@@ -1,4 +1,4 @@
-% journalctl , logs
+% journalctl , logs, systemd
 
 # Show logs a for specific service
 journalctl -xu <service>

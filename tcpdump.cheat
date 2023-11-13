@@ -1,0 +1,19 @@
+% tcpdump, network
+
+# Get all HTTPS traffic
+tcpdump -nnSX port 443
+
+# Get traffic on a specific interface
+tcpdump -i eth0
+
+# Get packets from/to a specific host
+tcpdump host <ip>
+
+# Get packets from an IP destined to a port
+tcpdump -nnvvS src <ip> and dst port <port>
+
+# Save captured data
+tcpdump -w capture.cap
+
+# Read from a capture file
+tcpdump -r capture.cap
