@@ -1,0 +1,17 @@
+% nix
+
+# Rebuild the system, using flakes
+nixos-rebuild switch --flake .
+
+# Rebuild the system, offline
+nixos-rebuild switch --flake . -option substitute false
+
+# Rebuild home-manager, using flakes
+home-manager switch --flake .
+
+# Build NixOS VM (#vm is the VM's hostname as defined in flake.nix)
+nixos-rebuild build-vm --flake .#vm
+
+# Initialize Flake template
+nix flake init -t <path_to_template_or_URL>
+
