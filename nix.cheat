@@ -15,3 +15,9 @@ nixos-rebuild build-vm --flake .#vm
 # Initialize Flake template
 nix flake init -t <path_to_template_or_URL>
 
+# Rebuild the system, targeting a remote host
+nixos-rebuild switch --flake <flake> --target-host <host> --use-remote-sudo
+
+# Rebuild the system, targeting a remote host and do the build on that host
+nixos-rebuild switch --flake <flake> --target-host <host> --build-host <host> --use-remote-sudo
+
